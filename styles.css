@@ -1,0 +1,424 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+body{
+    background:radial-gradient(134.34% 134.34% at 50% 0%,#8CC461 0%,#8CC461 100%);
+    font-family: 'Barlow', sans-serif;
+    overflow: hidden;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background:radial-gradient(134.34% 134.34% at 50% 0%,#8CC461 0%,#8CC461 100%);
+}
+.title{
+    color: #fff;
+    font-size: 2rem;
+   font-weight: 600;
+}
+.score-box{
+    display: flex;
+    margin-top: 4rem;
+    align-items: center;
+    padding: 2rem;
+    border: 2px solid white;
+    border-radius: 1rem;
+    width: 60%;
+    height: 18%;
+    justify-content: space-between;
+    background: rgba(28, 48, 120, 0.00);
+}
+.score{
+    display: flex;
+    gap: 1rem;
+}
+.score .computer-score,.your-score{
+    width: 8rem;
+    height: 7rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.score h1{
+    color: #252525;
+    font-size: 2.3rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.score p{
+    color: #656565;
+    font-size: 1.0625rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.10625rem;
+}
+
+
+.choices{
+    display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   background-position: center;
+   margin-top: 4rem;
+    background-image: url("triangle.png");
+    background-repeat: no-repeat;
+   width: 42rem;
+   height: 28rem;
+   
+}
+.rock{
+    margin-right: 4rem;
+}
+.scissor{
+    margin-left: 4rem;
+}
+.paper{
+    margin-top: 4rem;
+}
+.choices .hand{
+    cursor: pointer;
+    transition: 0.25s;
+}
+.choices .hand:hover{
+    transform: translate3d(0px,-9px,0px);
+    
+
+}
+.choices img{
+    width: 12rem;
+}
+.result{
+   
+    width:75%;
+    display: none;
+    margin-top: 5rem;
+  }
+  .result img{
+    width: 275px;
+    height: 275%;
+
+
+}
+.result>div{
+    flex: 1;
+}
+.result h1{
+    color: #FFF;
+
+    font-size: 1.3625rem;
+    letter-spacing: 0.10625rem;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.result .handimage{
+    display: flex;
+    justify-content: center;
+}
+
+.win-result
+{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-around;
+    margin-bottom: 3rem;
+  
+}
+
+.win-result h1{
+    text-align: center;
+    color: #FFF;
+    font-size: 2.4375rem;
+    font-style: normal;
+    letter-spacing: 0.24375rem;
+    margin-bottom: 0%;
+}
+
+.win-result p{
+    text-align: center;
+    color: #FFF;
+    font-size: 1.5625rem;
+    letter-spacing: 0.15625rem;
+}
+.newgame{
+    background-color: #FFF;
+    padding: 12px 24px ;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #424141;
+   font-size: 0.9375rem;
+   letter-spacing: 0.09375rem;
+   transition: all 0.15s;
+   width: fit-content;
+   text-align: center;
+}
+
+.newgame:hover{
+    background-color: #bcb7f6;
+    transform: translate3d(0px,-2.5px,0px);
+}
+ #pcpickimage{
+    visibility: hidden;
+    
+  }
+  .rules-container{
+    z-index: 4;
+    width: 100vw;
+    height: 30vh;
+    display: none;
+    margin-top:18rem ;
+    justify-content: flex-end;
+    position: fixed;
+    padding-right: 2rem;
+    align-self: end;
+    align-content: end;
+    width: fit-content;
+    opacity: 0; /* Set initial opacity to 0 to hide content */
+    animation: fadeIn 4s forwards;
+   }
+   @keyframes fadeIn {
+    0% {
+        opacity: 0; /* Start with full transparency (hidden) */
+    }
+    100% {
+        opacity: 1; /* End with full visibility (fully visible) */
+    }
+}
+  .rules-box{
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-right: 2rem;
+    width: 100vw;
+    height: 10rem;
+    align-items: center;
+    height: auto;
+    z-index: 3;
+    position: fixed;
+    bottom: 2rem;
+    border-radius: 0.625rem;
+}
+.next-button{
+    cursor: pointer;
+    width: 7rem;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.625rem;
+    border: 2px solid #FFF;
+    background: rgba(217, 217, 217, 0.00);
+    height: 2rem;
+    color: #FFF;
+    font-size: 1rem;
+    letter-spacing: 0.13125rem;
+    transition: all 0.15s;
+}
+.rules-button{
+    width: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.625rem;
+    border: 2px solid #FFF;
+    background: rgba(217, 217, 217, 0.00);
+    height: 2rem;
+    color: #FFF;
+    font-size: 1rem;
+    letter-spacing: 0.13125rem;
+    transition: all 0.15s;
+   
+   
+}
+.rules-button:hover{
+  background-color: #873708;
+  transform: translate3d(0px,-2.5px,0px);
+  border-color: black;
+}
+.next-button:hover{
+    background-color: #1f4cf0;
+    transform: translate3d(0px,-2.5px,0px);
+    border-color: black;
+}
+.rule-page{
+   
+    padding-top: 1rem;
+    padding-left: 0.5rem;
+    border-radius: 0.8125rem;
+    border: 7px solid #FFF;
+    background: #004429;
+    width: 18.375rem;
+    height: 22.3125rem;
+   margin-right: 1rem;
+    margin-top: 2rem;
+    z-index: 4;
+    position: fixed;
+  
+   
+}
+.rule-page:hover{
+    cursor: pointer;
+    background-color: #066301;
+    transform: translate3d(3px,-3.5px,3px);
+}
+
+.rules-container h1{
+    padding-bottom: 1.5rem;
+    color: #FFF;
+    font-size: 1.5125rem;
+    font-style: normal;
+    font-weight: 500;
+    text-align: center;
+    
+   
+}
+.rules{
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    }
+    
+    .rules ul>li{
+        color: #FFF;
+      padding: 0.5rem;
+      font-size: 0.9125rem;
+      
+    
+    }
+    .close-btn{
+        background: transparent;
+        display: flex;
+         margin-top: 1rem;
+         margin-left: 0%;
+        border-color: transparent;
+        position: absolute;
+        border-radius: 50%;
+        transition: all 0.15s;
+        z-index: 4;
+    }
+    .close-btn:hover{
+        background-color: #189993;
+        transform: translate3d(0px,-2.5px,0px);
+        border:2px solid black
+    }
+    .close-btn>img{
+        width: 43px;
+    }
+    ul {
+        list-style-type: none; /* Remove default bullets */
+       
+    }
+    
+    li::before {
+        content: "\25A0"; /* Square character */ /* Bullet character */
+        color:#FFD600; /* Change the color to your desired color */
+        font-size: 1.3em; /* Change the size to your desired size */
+        display: inline-block;
+        vertical-align: middle; /* Align the bullet vertically in the middle */
+        margin-right: 0.5em; /* Adjust spacing between bullet and text */
+    }
+    
+    li {
+        display: flex; /* Use flexbox for centering the text */
+        align-items: center; /* Center vertically within the list item */
+    }
+    .pulsecontainer{
+        /* visibility: hidden; */
+        position: relative;
+        width: 250px; /* Adjust the width of the container */
+        height: 250px; /* Adjust the height of the container */
+        border-radius: 50%;
+        background: #f8f40c32;
+    }
+    .pulsecontainer  span{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: inherit;
+        border-radius: inherit;
+        opacity: .8;
+        animation:pulseAnimation 4s ease-out infinite ;
+        animation-delay:calc(1s * var(--i)) ;
+    }
+    
+    @keyframes pulseAnimation {
+        100%{
+            opacity: 0;
+            transform: scale(2);
+        }
+        
+    }
+    .pulsecontainer>img{
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: inherit;
+        height: inherit;
+        z-index: 2; 
+    }
+    
+    .pulsecontainer1 span{
+       
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: inherit;
+        border-radius: inherit;
+        opacity: .8;
+        animation:pulseAnimation 4s ease-out infinite ;
+        animation-delay:calc(1s * var(--i)) ;
+    }
+    
+    .pulsecontainer1{
+       visibility: hidden;
+        position: relative;
+        width: 250px; /* Adjust the width of the container */
+        height: 250px; /* Adjust the height of the container */
+        border-radius: 50%;
+        background: rgba(17, 174, 3, 0.45);
+    }
+    .pulsecontainer1>img{
+        visibility: visible;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: inherit;
+        height: inherit;
+        z-index: 2; /* Place the center image above the pulsing shape */
+    }
+    
+    .waitpc{
+        display: flex;
+        flex-direction: column;
+        height: inherit;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        position: absolute;
+        padding-left: 1rem;
+    }
+    
+                    

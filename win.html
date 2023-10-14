@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="win.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/wincup.svg"/>
+  <link rel="stylesheet" href="styles.css">
+  <title>HURRAY|YOU WIN</title>
+</head>
+<body>
+  <div class="container">
+    <div class="cupsection">
+      <!-- <div class="stars">
+        <img src="assets/backgroundcup.svg" alt="">
+      
+      </div> -->
+      <div class="cup">
+        <img src="Vector.png" alt="">
+      </div>
+    </div>
+
+    <div class="summarysection">
+      <h1>HURRAY!!</h1>
+      <p>YOU WON THE GAME</p>
+      <div class="newgame" onclick="location.href='index.html'">
+        PLAY AGAIN
+    </div>
+    </div>
+    <div class="rules-container">
+    
+      <div class="rule-page">
+          <h1>Game Rules</h1>
+          
+          <div class="rules">
+              <ul>
+                  <li>Rock beats scissors, scissors beat paper, and paper beats rock.</li>
+                  <li>Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper, scissors.”</li>
+                  <li>Use rock, paper, scissors to settle minor decisions or simply play to pass the time</li>
+                  <li>If both players lay down the same hand, each player lays down another hand</li>
+              </ul>
+          </div>
+      </div>
+      <button class="close-btn" onclick="closerule()">
+          <img src="close.png" alt="Close Button" />
+        </button>
+      
+  </div>
+    <div class="rules-box">
+      
+      <div class="rules-button" tabindex="1" onclick="openrule()">
+          RULES
+      </div>
+     
+  </div>
+  </div>
+ <script src="script.js"></script>
+</body>
+</html>
