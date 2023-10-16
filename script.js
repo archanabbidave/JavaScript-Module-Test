@@ -4,9 +4,8 @@ const handOptions = {
     "scissor": "simage.png"
   }
 
-  /*Timer section*/
   const timerElement = document.getElementById("timer");
-  let countdown = 0; // Initial countdown time in seconds
+  let countdown = 0; 
   let timerInterval;
 function updateTimer() {
   timerElement.textContent = countdown;
@@ -19,25 +18,23 @@ function updateTimer() {
   }
 }
 
-/*initial score*/
 
   let uscore = 0;
   let cscore=0;
 
-  //play game and display result
   const pickUserHand = (hand) => {
     let hands = document.querySelector(".choices");
     hands.style.display = "none";
-    countdown = 3; // Set the countdown time to 3 seconds
-    clearInterval(timerInterval); // Clear any existing intervals
-    updateTimer(); // Initial display
+    countdown = 3; 
+    clearInterval(timerInterval); 
+    updateTimer(); 
     timerInterval = setInterval(updateTimer, 1000); 
     closerule();
   
     let contest = document.querySelector(".result");
     contest.style.display = "flex";
   
-    // set user Image
+    
     document.getElementById("userpicimage").src = handOptions[hand];
     setTimeout(() => {
     let pc=document.querySelector("#pcpickimage");
@@ -55,15 +52,13 @@ function updateTimer() {
       let hands = ["rock", "paper", "scissor"];
       let cpHand = hands[Math.floor(Math.random() * hands.length)];
       
-      // set computer image 
+     
       document.getElementById("pcpickimage").src = handOptions[cpHand]
       
       referee(hand, cpHand);
   };
   
   const referee = (userHand, cpHand) => {
-
-    //set score to local storage()
 
     
     if (userHand == "paper" && cpHand == "scissor") {
@@ -141,21 +136,17 @@ function updateTimer() {
 
 
 function increaseScore(score) {
-    // Get the current score from storage or set it to 0 if not present
     
     let currentScore = parseInt(localStorage.getItem('uscore')) || 0;
-    // Increment the score
     
     let ccurrentScore = parseInt(localStorage.getItem('cscore')) || 0;
-    // Increment the score
  
-    // Update the score in storage
     if(score=="uscore"){
         let nextbutton=document.querySelector(".next-button");
         nextbutton.style.display="flex";
         currentScore++;
         localStorage.setItem('uscore', currentScore);
-        // Display the updated score
+        
         document.getElementById('uscore').textContent = currentScore;
         pulsevisibilityon();
     }
@@ -163,7 +154,7 @@ function increaseScore(score) {
     else{
         ccurrentScore++;
         localStorage.setItem('cscore', ccurrentScore);
-    // Display the updated score
+
     document.getElementById('cscore').textContent = ccurrentScore;
      pulseon();
     }
@@ -171,10 +162,10 @@ function increaseScore(score) {
 }
 
 function resetScore() {
-  // Clear the score in storage
+  
   localStorage.removeItem('uscore');
   localStorage.removeItem('cscore');
-  // Set the displayed score to 0
+  
   document.getElementById('uscore').textContent = 0;
   document.getElementById('cscore').textContent = 0;
 
